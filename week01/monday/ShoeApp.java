@@ -1,3 +1,8 @@
+/*
+You can get the shoe csv file from: https://drive.google.com/drive/folders/1u6lFHDG0dNFlPLxy_DP3eHYsAEe37ffu?usp=drive_link
+
+*/
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
