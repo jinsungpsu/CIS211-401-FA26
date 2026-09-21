@@ -1,0 +1,10 @@
+T peekBottom() {
+	return array[count - 1];
+}
+
+---
+
+I'll write a method that will return the bottom, which would be at index count - 1, since count keeps track of how many items, and arrays start at index 0.
+---
+
+I'll write a method that returns the item at the index count - 1 of the array.
