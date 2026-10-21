@@ -1,0 +1,24 @@
+
+1. The Order of Characters Doesn't Matter (Anagram Collisions)
+
+Because multiplication is commutative (\(A \times B = B \times A\)), any string that is an anagram of another string will produce the exact same index.
+• "cat", "act", and "tac" will all calculate 99 × 97 × 116 = 1,113,996.
+• They will always collide and map to the exact same bucket, creating immediate clusters.
+
+2. High Probability of Even Numbers and Multiples of 2
+
+In the ASCII table, exactly half of all characters are even numbers.
+• As soon as your loop hits one single even character, the total product becomes even.
+• Once the product becomes even, it can never become odd again.
+• As the string gets longer, your index quickly accumulates factors of 2. If your hashTable.length is an even number (like a power of 2, e.g., 16, 64, 1024), your modulo operation (% hashTable.length) will only map to a fraction of the available slots, leaving huge gaps of empty buckets and massive clusters in others.
+
+3. Rapid Overflow to Zero
+
+Multiplication grows exponentially. A 4-character string like "test" evaluates to 116 × 101 × 115 × 116 = 156,231,800. If a string is longer than 5 or 6 characters, the value will quickly exceed the maximum limit of a standard 32-bit integer (Integer.MAX_VALUE).
+• In Java, integer overflow wraps around.
+• If your string is long enough or contains characters that are multiples of 2, the lower bits will eventually completely fill with zeros.
+• Once the integer overflows and the lower bits become zero, the function will return 0 for almost all long strings, dumping them all into bucket 0.
+
+4. The Impact of Common Characters
+
+Most text strings (like names, words, or IDs) utilize a small, repetitive subset of the ASCII table (mostly lowercase letters between 97 and 122). Because your function doesn't use a "salt" or a prime multiplier to separate these close values, strings with similar letters naturally gravitate toward the same mathematical patterns.
