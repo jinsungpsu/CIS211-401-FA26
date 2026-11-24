@@ -44,6 +44,10 @@ class Pokemon implements Comparable<Pokemon>{
 }
 
 class GenericBST<T extends Comparable<T>> {
+    /*
+    There's some left over copy/paste issues.. you don't need to use BinarySearchTree.Node... you should change all of those to just Node
+    .. in fact... probably best to just delete the entire BinarySearchTree class and use this class (GenericBST) as your starter code
+    */
 
     private Node root;
 
