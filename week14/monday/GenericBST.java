@@ -72,8 +72,8 @@ class GenericBST<T extends Comparable<T>> {
 
     }
 
-    private void insert(T item, BinarySearchTree.Node root) {
-        if (item > root.data) {
+    private void insert(T item, Node root) {
+        if (item > root.data) {  // <-- this needs to be converted to if (item.compareTo(root.data) > 0)
             if (root.right == null) {
                 // i've fallen off the tree
                 // very similar to how we did this in linked list
